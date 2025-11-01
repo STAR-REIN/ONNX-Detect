@@ -106,13 +106,15 @@
 
 ### 选项 1: (推荐) 使用打包的 .exe 文件
 
-1.  从本仓库的 [Releases](https://github.com/STAR-REIN/remote-repo/releases) 页面下载最新的 `.exe` 可执行文件的压缩包。
-2.  压缩包版本说明：
-   * 无后缀：完整版本，压缩包大小1.5G左右；自带CUDA和onnx-runtime-gpu环境，只需电脑自带支持CUDA 12.x.x的GPU即可使用GPU推理，建议无CUDA环境，有GPU用户安装该版本。
-   * Lite_GPU：简化版本，压缩包大小1G左右；保留GPU支持，但需用户自行安装CUDA环境，建议有CUDA环境用户安装该版本。
-   * Lite_CPU:简化版本，压缩包大小600M左右；去除GPU支持，仅支持CPU推理，建议无GPU用户安装该版本。
-3.  确保您的 `models` 文件夹和（可选的）`custom_models` 文件夹与 `.exe` 文件位于同一目录下。
-4.  直接运行 `.exe` 文件。
+1.  从本仓库的 [Releases](https://github.com/STAR-REIN/ONNX-Detect/releases) 页面下载最新的 `.exe` 可执行文件，从[网盘链接](https://pan.baidu.com/s/1tn5E1JG5FpbbVukE9UkVGg?pwd=ntdn)下载环境压缩包。
+2.  环境压缩包版本说明：
+   * 无后缀：完整版本，压缩包大小1.41G左右；自带CUDA和onnx-runtime-gpu环境，只需电脑自带支持CUDA 12.x.x的GPU即可使用GPU推理，建议无CUDA环境，有GPU用户下载。
+   * Lite_GPU：简化版本，压缩包大小744MB左右；保留GPU支持，但需用户自行安装CUDA环境，建议有CUDA环境用户下载。
+   * Lite_CPU:简化版本，压缩包大小684MB左右；去除GPU支持，仅支持CPU推理，建议无GPU用户下载。
+
+3.  首先下载并解压所需的环境压缩包，然后将exe放入解压出的文件夹根目录下，双击即可运行。
+4.  确保您的 `models` 文件夹和（可选的）`custom_models` 文件夹与 `.exe` 文件位于同一目录下。
+5.  直接运行 `.exe` 文件。
 
 ### 选项 2: 从源代码运行
 
@@ -136,6 +138,7 @@
    
 
 4.  **准备模型**:
+    * 从[网盘链接](https://pan.baidu.com/s/)下载环境压缩包下载内置模型压缩包。（网盘链接待更新）
     * 将您下载的 YOLOv10 `basic` 和 `enhance` ONNX 模型文件放入根目录下的 `models` 文件夹中。
     * （可选）根据下一节的说明配置 `custom_models` 文件夹。
 
