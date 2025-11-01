@@ -1,0 +1,87 @@
+/* === 亮色主题样式 === */
+
+/* 1. 窗口总背景：必须设为 transparent，让亚克力效果透出来 */
+MainView {
+    background: transparent;
+}
+
+/* 2. 主内容容器：设置一个半透明的浅色背景 */
+#main_container {
+    background-color: rgba(242, 243, 244, 0.85); /* 浅灰色背景，85% 的不透明度 */
+    border-radius: 8px;
+}
+
+/* 3. 标题栏：设置一个更透明的背景，产生层次感 */
+StandardTitleBar {
+    background-color: rgba(242, 243, 244, 0.45); /* 45% 不透明度的浅灰色 */
+}
+
+/* 4. 标题栏上的自定义图标（注意：选择器改为 #customIconLabel） */
+#customIconLabel { /* 注意：这里是 customIconLabel */
+    background: transparent;
+    margin-left: 6px; /* 维持您原有的左边距 */
+    qproperty-alignment: AlignVCenter; /* 确保图标垂直居中 */
+
+    /* ！！！ 图标大小调整 ！！！ */
+    /* 最推荐的方式是同时修改 view.py 中 setFixedSize 和 pixmap(size, size) 的参数。 */
+    /* 但是，QSS 也可以尝试强制调整 QLabel 的尺寸，如果 QLabel 的内容（pixmap）有按比例缩放的属性。 */
+    /* 如果此处调整无效，请参考下面的 view.py 调整说明。 */
+    min-width: 20px; /* 示例：调整为 20x20 像素 */
+    max-width: 20px;
+    min-height: 20px;
+    max-height: 20px;
+}
+
+/* 5. 标题栏上的自定义标题文字（注意：选择器改为 #customTitleLabel） */
+#customTitleLabel { /* 注意：这里是 customTitleLabel */
+    background: transparent;
+
+    /* ！！！ 标题字体、颜色、斜体、加粗调整 ！！！ */
+    color: #333333; /* 字体颜色：示例为深一点的灰色，亮色主题常用 */
+    font-family: 'JetBrains Maple Mono'; /* 字体系列 */
+    font-size: 12pt; /* 字号：示例为 12pt (比 15px 通常略大) */
+    font-weight: bold; /* 加粗：bold (加粗), normal (正常), lighter, bolder, 或数字如 600 */
+    font-style: italic; /* 斜体：italic (斜体), normal (正常) */
+    /* text-decoration: underline; */ /* 如果需要下划线 */
+
+    padding-left: 6px; /* 维持您原有的左边距 */
+    qproperty-alignment: AlignVCenter; /* 确保标题垂直居中 */
+}
+
+/* 6. (可选) 让您的 CommandBar 背景也透明，与 main_container 融为一体 */
+CommandBar {
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+/* --- QFrameLessWindow 控制按钮样式保持不变 --- */
+/* 这些是针对 TitleBar 内部的 QToolButton，与我们的 custom_icon_label/title_label 无关 */
+TitleBar > QToolButton {
+    background-color: transparent;
+    border: none;
+    min-width: 46px; /* 假设按钮宽度为 46px */
+    max-width: 46px;
+    height: 32px;  /* 假设按钮高度为 32px */
+    qproperty-alignment: AlignVCenter;
+}
+
+TitleBar > QToolButton:hover {
+    background-color: #E6E6E6; /* 亮色主题悬停色 */
+}
+
+TitleBar > QToolButton:pressed {
+    background-color: #CCCCCC; /* 亮色主题按下色 */
+}
+
+TitleBar > QToolButton#closeButton:hover {
+    background-color: #C42B1C; /* 关闭按钮的特殊红色 */
+}
+
+TitleBar > QToolButton#closeButton:pressed {
+    background-color: #A9261B;
+}
+
