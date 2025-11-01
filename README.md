@@ -2,237 +2,240 @@
 
 ![ONNX-Detect-Screenshot](./assets/screenshot.png)
 
-这是一个基于 **PyQt6**、**QFluentWidgets** 和 **ONNXRuntime** 的现代化桌面应用程序，专为 YOLOv10 目标检测而设计。它提供了一个受 Fluent Design 启发的亚克力 (Acrylic) 界面，支持多种输入源、灵活的模型管理（内置与自定义）以及强大的摄像头控制功能。
+This is a modern desktop application built on **PyQt6**, **QFluentWidgets**, and **ONNXRuntime**, specifically designed for YOLOv10 object detection. It features a Fluent Design-inspired Acrylic interface, supporting multiple input sources, flexible model management (built-in and custom), and robust camera control capabilities.
 
 ---
 
-## 🚀 核心功能
+## 🌎 Language
 
-* **现代化UI界面**:
-    * 使用 `PyQt6` 搭配 `pyqt6-fluent-widgets` 库构建，提供流畅的 Fluent Design (WinUI) 风格。
-    * 支持 Windows 11 亚克力半透明背景效果，并允许用户自定义背景色调。
-* **高性能推理后端**:
-    * 采用 `onnxruntime-gpu` 作为核心推理引擎，优先使用 **NVIDIA GPU (CUDA)** 进行加速，并可无缝回退到 CPU。
-    * 在 UI 中自动显示当前使用的推理设备 (GPU 或 CPU)。
-* **灵活的推理模式**:
-    * **单次推理 (One-Time)**:
-        * 支持**图片文件**（如 .png, .jpg）。
-        * 支持**视频文件**（如 .mp4, .avi），处理完成后可播放结果。
-        * 支持**摄像头单帧捕捉**，可立即对当前摄像头画面进行一次性推理。
-    * **实时推理 (Real-Time)**:
-        * 支持**视频文件**输入，实时处理并在界面显示原始/推理双画面。
-        * 支持**实时摄像头**输入，在显示摄像头画面的同时进行推理。
-        * 实时推理过程中支持**暂停/恢复**。
-* **强大的模型管理**:
-    * **内置模型**: 自动加载 `models` 目录下的所有 YOLOv10 (n, s, m, l, x) onnx 模型。
-    * **自定义模型**:
-        * 支持通过 `custom_models/custom_models_config.yaml` 配置文件加载任意 ONNX 模型。
-        * 完全支持自定义**类别名称 (Class Names)**。
-        * 完全支持自定义**边界框颜色 (Colors)**。
-        * 应用内提供打开模型目录、配置文件的快捷方式。
-* **先进的摄像头控制**:
-    * 自动检测并列出所有可用的系统摄像头。
-    * 支持在 "启用/禁用" 摄像头系统和 "选择特定摄像头" 之间切换。
-    * **分辨率设置**:
-        * 自动检测每个摄像头支持的分辨率 (如 1080p, 720p, 480p)。
-        * 允许用户在推理前为指定摄像头**预设分辨率**。
-* **完善的文件处理**:
-    * **完全支持中文（Unicode）路径**，无论是上传文件、保存结果还是加载模型。
-    * 保存推理结果（图片）时，支持选择多种保存格式 (JPG, PNG, BMP, TIFF)。
-    * 支持自定义设置和打开默认的保存目录。
-* **结果播放与状态管理**:
-    * 内置视频播放器，用于回放**视频推理结果**（并排显示原始视频与结果视频）。
-    * 支持播放、暂停、重置（返回开头）视频。
-    * 强大的应用状态机 (`ApplicationStateManager`)，可智能管理UI组件的启用/禁用状态，防止用户误操作（例如在推理时切换模式或在摄像头开启时上传文件）。
-* **其他**:
-    * 包含 "关于" 页面，显示版本和更新日志。
-    * 包含 "清除" 功能，可一键重置应用状态并清空显示区域。
-    * 包含一个神秘彩蛋。
+* **[Read the original Chinese (中文) README here](./README_zh.md)**
 
 ---
 
-## 📜 更新日志 (Changelog)
+## 🚀 Core Features
+
+* **Modern UI Interface**:
+    * Built with `PyQt6` and the `pyqt6-fluent-widgets` library, providing a smooth Fluent Design (WinUI) style.
+    * Supports the Windows 11 Acrylic translucent background effect and allows users to customize the background color tone.
+* **High-Performance Inference Backend**:
+    * Utilizes `onnxruntime-gpu` as the core inference engine, prioritizing **NVIDIA GPU (CUDA)** for acceleration, with seamless fallback to CPU.
+    * The UI automatically displays the currently used inference device (GPU or CPU).
+* **Flexible Inference Modes**:
+    * **One-Time Inference**:
+        * Supports **image files** (e.g., .png, .jpg).
+        * Supports **video files** (e.g., .mp4, .avi); results can be played after processing.
+        * Supports **single-frame camera capture** for immediate, one-time inference on the current camera view.
+    * **Real-Time Inference**:
+        * Supports **video file** input, processing in real-time and displaying both original/inferred dual views.
+        * Supports **live camera** input, performing inference while displaying the camera feed.
+        * Supports **pause/resume** during real-time inference.
+* **Powerful Model Management**:
+    * **Built-in Models**: Automatically loads all YOLOv10 (n, s, m, l, x) ONNX models from the `models` directory.
+    * **Custom Models**:
+        * Supports loading arbitrary ONNX models via the `custom_models/custom_models_config.yaml` configuration file.
+        * Full support for custom **Class Names**.
+        * Full support for custom **Bounding Box Colors**.
+        * Provides in-app shortcuts to open the model directory and configuration file.
+* **Advanced Camera Control**:
+    * Automatically detects and lists all available system cameras.
+    * Supports switching between "Enable/Disable" the camera system and "Selecting a specific camera."
+    * **Resolution Settings**:
+        * Automatically detects resolutions supported by each camera (e.g., 1080p, 720p, 480p).
+        * Allows users to **preset the resolution** for a specific camera before inference.
+* **Comprehensive File Handling**:
+    * **Full support for Chinese (Unicode) paths**, whether for uploading files, saving results, or loading models.
+    * Supports selecting multiple save formats (JPG, PNG, BMP, TIFF) when saving inference results (images).
+    * Supports custom setting and opening of the default save directory.
+* **Result Playback and State Management**:
+    * Built-in video player for playing back **video inference results** (displaying the original video and result video side-by-side).
+    * Supports playing, pausing, and resetting (returning to the start) the video.
+    * Powerful application state machine (`ApplicationStateManager`) intelligently manages the enabled/disabled status of UI components to prevent user errors (e.g., switching modes during inference or uploading files while the camera is on).
+* **Other Features**:
+    * Includes an "About" page showing the version and changelog.
+    * Includes a "Clear" function to reset the application state and clear the display area with one click.
+    * Includes a mysterious Easter Egg.
+
+---
+
+## 📜 Changelog
 
 <details>
-<summary>点击展开/折叠</summary>
+<summary>Click to Expand/Collapse</summary>
 
-<h3>版本更新日志</h3>
-<p><b>V1.2.2 - 2025年10月31日</b></p>
+<h3>Version Update Log</h3>
+<p><b>V1.2.2 - October 31, 2025</b></p>
 <ul>
-    <li>新增“摄像头设置”功能，可选摄像头分辨率。</li>
+    <li>Added "Camera Settings" feature, allowing selection of camera resolution.</li>
 </ul>
-<p><b>V1.2.1 - 2025年10月30日</b></p>
+<p><b>V1.2.1 - October 30, 2025</b></p>
 <ul>
-    <li>新增 [神秘彩蛋]，由神秘数字触发。</li>
-    <li>新增“关于”界面，显示更新日志。</li>
-    <li>新增“清除”功能，允许清除输出预览</li>
-    <li>全面支持中文路径的文件操作，保存推理结果时，图片文件提供多种格式。</li>
+    <li>Added a [Mysterious Easter Egg], triggered by a mysterious number.</li>
+    <li>Added "About" interface, displaying the update log.</li>
+    <li>Added "Clear" function, allowing the clearing of the output preview.</li>
+    <li>Full support for Chinese path file operations; provides multiple formats for image files when saving inference results.</li>
 </ul>
-<p><b>V1.2.0 - 2025年10月29日</b></p>
+<p><b>V1.2.0 - October 29, 2025</b></p>
 <ul>
-    <li>代码结构重构，参考MVVM架构，集成高度抽象层。</li>
-    <li>修复若干用户UI交互潜在BUG。</li>
+    <li>Code structure refactoring, referencing the MVVM architecture and integrating high-level abstraction layers.</li>
+    <li>Fixed several potential user UI interaction bugs.</li>
 </ul>
-<p><b>V1.1.1 - 2025年10月28日</b></p>
+<p><b>V1.1.1 - October 28, 2025</b></p>
 <ul>
-    <li>新增摄像头系统：支持检测、选择、启用/禁用摄像头。</li>
-    <li>单次、实时推理模式支持摄像头作为输入源。</li>
-    <li>优化UI状态管理，提升用户体验。</li>
+    <li>Added camera system: supports detection, selection, and enabling/disabling of cameras.</li>
+    <li>One-time and real-time inference modes support the camera as an input source.</li>
+    <li>Optimized UI state management to enhance user experience.</li>
 </ul>
-<p><b>V1.1.0 - 2025年10月27日</b></p>
+<p><b>V1.1.0 - October 27, 2025</b></p>
 <ul>
-    <li>新增自定义模型加载、管理、配置功能。</li>
-    <li>新增自主题颜色选择功能。</li>
+    <li>Added custom model loading, management, and configuration features.</li>
+    <li>Added custom theme color selection feature.</li>
 </ul>
-<p><b>V1.0.0 - 2025年10月26日</b></p>
+<p><b>V1.0.0 - October 26, 2025</b></p>
 <ul>
-    <li>初始发行版，解决onnx-runtime兼容性导致pyinstaller无法正常打包exe问题。</li>
-    <li>使用PyQT6-fluent-widgets第三方库进行UI美化。</li>
-    <li>支持win11下亚克力界面效果。</li>
+    <li>Initial release, resolved onnx-runtime compatibility issue preventing normal packaging of the executable with pyinstaller.</li>
+    <li>Used the PyQt6-fluent-widgets third-party library for UI beautification.</li>
+    <li>Supports the Acrylic interface effect under Win11.</li>
 </ul>
-<p><b>V0.0.0 - 2025年10月26日</b></p>
+<p><b>V0.0.0 - October 26, 2025</b></p>
 <ul>
-    <li>初始版本，支持单个YOLOv10 ONNX 模型加载与推理。</li>
-    <li>提供单次图片/视频推理与实时视频推理功能。</li>
-    <li>QT标准UI。</li>
+    <li>Initial version, supports single YOLOv10 ONNX model loading and inference.</li>
+    <li>Provides one-time image/video inference and real-time video inference features.</li>
+    <li>Standard QT UI.</li>
 </ul>
-<p><b>GitHub: </b><a href="https://github.com/STAR-REIN/remote-repo">点击访问</a></p>
+<p><b>GitHub: </b><a href="https://github.com/STAR-REIN/remote-repo">Click to Visit</a></p>
 
 </details>
 
 ---
 
-## 🛠️ 安装与运行
+## 🛠️ Installation and Running
 
-### 选项 1: (推荐) 使用打包的 .exe 文件
+### Option 1: (Recommended) Using the Packaged .exe File
 
-1.  从本仓库的 [Releases](https://github.com/STAR-REIN/remote-repo/releases) 页面下载最新的 `.exe` 可执行文件的压缩包。
-2.  压缩包版本说明：
-   * 无后缀：完整版本，压缩包大小1.5G左右；自带CUDA和onnx-runtime-gpu环境，只需电脑自带支持CUDA 12.x.x的GPU即可使用GPU推理，建议无CUDA环境，有GPU用户安装该版本。
-   * Lite_GPU：简化版本，压缩包大小1G左右；保留GPU支持，但需用户自行安装CUDA环境，建议有CUDA环境用户安装该版本。
-   * Lite_CPU:简化版本，压缩包大小600M左右；去除GPU支持，仅支持CPU推理，建议无GPU用户安装该版本。
-3.  确保您的 `models` 文件夹和（可选的）`custom_models` 文件夹与 `.exe` 文件位于同一目录下。
-4.  直接运行 `.exe` 文件。
+1.  Download the latest `.exe` executable file from the [Releases](https://github.com/STAR-REIN/ONNX-Detect/releases) page of this repository and download the environment compressed package from the [cloud drive link](https://pan.baidu.com/s/1tn5E1JG5FpbbVukE9UkVGg?pwd=ntdn) (password: ntdn).
+2.  Environment compressed package version descriptions:
+    * No suffix: Complete version, compressed package size is about 1.41G; comes with CUDA and onnx-runtime-gpu environment. You only need a GPU that supports CUDA 12.x.x to use GPU inference. **Recommended for users with a GPU but no pre-installed CUDA environment.**
+    * Lite_GPU: Simplified version, compressed package size is about 744MB; retains GPU support but requires the user to install the CUDA environment themselves. **Recommended for users with an existing CUDA environment.**
+    * Lite_CPU: Simplified version, compressed package size is about 684MB; removes GPU support and only supports CPU inference. **Recommended for users without a GPU.**
+3.  First, download and decompress the required environment package. Then, place the `.exe` file into the root directory of the decompressed folder and double-click to run.
+4.  Ensure that your `models` folder and (optional) `custom_models` folder are in the same directory as the `.exe` file.
+5.  Directly run the `.exe` file.
 
-### 选项 2: 从源代码运行
+### Option 2: Running from Source Code
 
-1.  **克隆仓库**:
+1.  **Clone the Repository**:
     ```bash
     git clone [https://github.com/STAR-REIN/ONNX-Detect.git](https://github.com/STAR-REIN/ONNX-Detect.git)
     cd ONNX-Detect
     ```
 
-2.  **创建 Conda 环境**:
-    本项目使用 `environment.yml` 文件来管理依赖。
+2.  **Create Conda Environment**:
+    This project uses the `environment.yml` file to manage dependencies.
     ```bash
     conda env create -f environment.yml
     ```
-   
 
-3.  **激活环境**:
+3.  **Activate Environment**:
     ```bash
     conda activate pyqt6_package
     ```
-   
 
-4.  **准备模型**:
-    * 将您下载的 YOLOv10 `basic` 和 `enhance` ONNX 模型文件放入根目录下的 `models` 文件夹中。
-    * （可选）根据下一节的说明配置 `custom_models` 文件夹。
+4.  **Prepare Models**:
+    * Download the built-in model compressed package from the [cloud drive link](https://pan.baidu.com/s/). (Cloud drive link to be updated)
+    * Place your downloaded YOLOv10 `basic` and `enhance` ONNX model files into the `models` folder in the root directory.
+    * (Optional) Configure the `custom_models` folder according to the instructions in the next section.
 
-5.  **运行程序**:
+5.  **Run the Program**:
     ```bash
     python main.py
     ```
-   
 
-**依赖说明**:
-* 本项目需要 **Python 3.12.1**。
-* GPU 加速依赖 `onnxruntime-gpu==1.19.0`。请确保您的 **NVIDIA 驱动** 和 **CUDA Toolkit** 版本与 ONNXRuntime 兼容。如果您的 GPU 不受支持，`onnxruntime-gpu` 会自动回退到 CPU 模式。
-
----
-
-## 📖 使用指南
-
-1.  **启动程序**: 运行 `.exe` 或 `python main.py`。
-2.  **选择模型**:
-    * **内置模型**: 点击 "内置模型选择"，从下拉菜单中选择一个模型。程序会自动加载。
-    * **自定义模型**: 点击 "外部模型管理" -> "加载自定义模型" 来加载您的 YAML 配置。然后点击 "外部模型选择" 来选用。
-3.  **选择推理模式**:
-    * **单次模式 (OneTime)**: 用于处理单个文件或单帧。
-    * **实时模式 (RunTime)**: 用于处理视频文件或实时摄像头流。
-4.  **选择输入源**:
-    * **文件**: 点击 "上传文件" 按钮，选择图片或视频。上传后将显示预览。
-    * **摄像头**:
-        1.  （可选）点击 "摄像头设置" 按钮。在**禁用摄像头系统**的状态下，为您要使用的摄像头预选一个分辨率。
-        2.  点击 "摄像头选择" -> "启用/禁用 ✕" 来启动摄像头系统。
-        3.  再次点击 "摄像头选择"，从列表中选择一个检测到的摄像头（如 "摄像头 0"）。
-        4.  此时输入预览区将显示实时摄像头画面。
-5.  **开始推理**:
-    * 点击 "开始推理" (或 "开始实时推理") 按钮。
-    * 在推理过程中，按钮会变为 "停止推理"。
-    * 实时推理模式下，"播放/暂停" 按钮可用于暂停/恢复推理线程。
-6.  **查看结果**:
-    * **单次模式**: 结果将显示在右侧 "推理结果" 区域。如果是视频，处理完成后会自动加载播放器。
-    * **实时模式**: 左右两侧将同时显示 "原始画面" 和 "推理结果"。
-7.  **保存结果**: 推理完成后，点击 "文件" -> "保存推理结果"。
+**Dependency Notes**:
+* This project requires **Python 3.12.1**.
+* GPU acceleration relies on `onnxruntime-gpu==1.19.0`. Please ensure your **NVIDIA driver** and **CUDA Toolkit** versions are compatible with ONNXRuntime. If your GPU is not supported, `onnxruntime-gpu` will automatically fall back to CPU mode.
 
 ---
 
-## ⚙️ 配置自定义模型
+## 📖 Usage Guide
 
-本工具的强大之处在于可以轻松加载您自己的 ONNX 模型。
+1.  **Start the Program**: Run `.exe` or `python main.py`.
+2.  **Select a Model**:
+    * **Built-in Models**: Click "Built-in Model Selection" and choose a model from the dropdown menu. The program will load it automatically.
+    * **Custom Models**: Click "External Model Management" -> "Load Custom Models" to load your YAML configuration. Then click "External Model Selection" to choose a model.
+3.  **Select Inference Mode**:
+    * **One-Time Mode**: For processing a single file or a single frame.
+    * **Run-Time Mode (Real-Time)**: For processing video files or a live camera stream.
+4.  **Select Input Source**:
+    * **File**: Click the "Upload File" button and select an image or video. A preview will display after upload.
+    * **Camera**:
+        1.  (Optional) Click the "Camera Settings" button. While the **camera system is disabled**, pre-select a resolution for the camera you plan to use.
+        2.  Click "Camera Selection" -> "Enable/Disable ✕" to start the camera system.
+        3.  Click "Camera Selection" again and select a detected camera from the list (e.g., "Camera 0").
+        4.  The input preview area will now display the live camera feed.
+5.  **Start Inference**:
+    * Click the "Start Inference" (or "Start Real-Time Inference") button.
+    * The button will change to "Stop Inference" during the process.
+    * In real-time inference mode, the "Play/Pause" button can be used to pause/resume the inference thread.
+6.  **View Results**:
+    * **One-Time Mode**: Results will appear in the right-side "Inference Results" area. If it's a video, the player will load automatically after processing is complete.
+    * **Real-Time Mode**: "Original Frame" and "Inference Results" will be displayed simultaneously on the left and right sides.
+7.  **Save Results**: After inference is complete, click "File" -> "Save Inference Results."
 
-1.  **创建目录**: 在 `.exe` 文件或 `main.py` 所在的根目录下，创建一个名为 `custom_models` 的文件夹。
-2.  **放置文件**:
-    * 将您的 `.onnx` 模型文件（例如 `my_model.onnx`）放入 `custom_models` 文件夹。
-    * 在该文件夹中创建一个名为 `custom_models_config.yaml` 的配置文件。
-3.  **编辑 `custom_models_config.yaml`**:
-    应用启动时会自动创建该文件的模板 (`.template`)。您可以参考该模板进行编辑，格式如下：
+---
+
+## ⚙️ Configuring Custom Models
+
+The power of this tool lies in its ability to easily load your own ONNX models.
+
+1.  **Create Directory**: In the root directory where the `.exe` file or `main.py` is located, create a folder named `custom_models`.
+2.  **Place Files**:
+    * Place your `.onnx` model file (e.g., `my_model.onnx`) into the `custom_models` folder.
+    * Create a configuration file named `custom_models_config.yaml` in this folder.
+3.  **Edit `custom_models_config.yaml`**:
+    The application will automatically create a template (`.template`) of this file upon launch. You can refer to this template for editing. The format is as follows:
 
     ```yaml
     # ==============================================================================
-    # 自定义ONNX模型配置说明文件 (模板内容)
-    # ... (说明文字) ...
+    # Custom ONNX Model Configuration Instructions (Template Content)
+    # ... (Instruction Text) ...
     # ------------------------------------------------------------------------------
-    # 示例配置:
+    # Example Configuration:
     # ==============================================================================
 
     custom_models:
-      - model_file: "my_custom_model_v1.onnx"  # 确保这个onnx文件在custom_models目录下
-        menu_display_name: "我的自定义模型 - V1汽车行人"
+      - model_file: "my_custom_model_v1.onnx"  # Ensure this onnx file is in the custom_models directory
+        menu_display_name: "My Custom Model - V1 Car Pedestrian"
         class_names: ["car", "person", "truck", "bus"]
-        colors: ["#FF0000", "#00FF00", "#0000FF", "#FFFF00"] # 对应car, person, truck, bus的颜色
+        colors: ["#FF0000", "#00FF00", "#0000FF", "#FFFF00"] # Corresponding colors for car, person, truck, bus
 
-      - model_file: "another_custom_detector.onnx" # 另一个自定义模型
-        menu_display_name: "另一个检测器 - 物体识别"
+      - model_file: "another_custom_detector.onnx" # Another custom model
+        menu_display_name: "Another Detector - Object Recognition"
         class_names: ["bottle", "cup", "keyboard", "mouse", "laptop", "monitor"]
         colors:
-          - "#E74C3C" # 红色
-          - "#2ECC71" # 绿色
-          - "#3498DB" # 蓝色
-          - "#F1C40F" # 黄色
-          - "#9B59B6" # 紫色
-          - "#1ABC9C" # 青色
-          # ... 更多颜色
+          - "#E74C3C" # Red
+          - "#2ECC71" # Green
+          - "#3498DB" # Blue
+          - "#F1C40F" # Yellow
+          - "#9B59B6" # Purple
+          - "#1ABC9C" # Teal
+          # ... More colors
     # ==============================================================================
     ```
-   
 
-4.  **加载模型**:
-    * 启动应用程序。
-    * 点击 "外部模型管理" -> "加载自定义模型"。
-    * 程序将读取 `custom_models_config.yaml`，验证 `.onnx` 文件是否存在，并将所有有效模型添加到 "外部模型选择" 的下拉菜单中。
+4.  **Load Models**:
+    * Start the application.
+    * Click "External Model Management" -> "Load Custom Models."
+    * The program will read `custom_models_config.yaml`, verify the existence of the `.onnx` files, and add all valid models to the "External Model Selection" dropdown menu.
 
 ---
 
-## 📄 许可证
+## 📄 License
 
-本项目采用 [GPLv3 License](LICENSE)。
+This project is licensed under the [GPLv3 License](LICENSE).
 
-## 🙏 致谢
+## 🙏 Acknowledgments
 
 * [YOLOv10](https://github.com/THU-MIG/YOLOv10)
 * [PyQt6](https://www.riverbankcomputing.com/software/pyqt/)
-* [PyQt-Fluent-Widgets
-](https://github.com/zhiyiYo/PyQt-Fluent-Widgets)
+* [PyQt-Fluent-Widgets](https://github.com/zhiyiYo/PyQt-Fluent-Widgets)
 * [ONNXRuntime](https://github.com/microsoft/onnxruntime)
