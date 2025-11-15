@@ -66,6 +66,7 @@ This is a modern desktop application built on **PyQt6**, **PyQt-Fluent-Widgets**
 <p><b>V1.2.3 - November 13, 2025</b></p>
 <ul>
     <li>Switching the OpenCV camera API to MSMF on Windows to resolve stuttering issues with high-resolution cameras.</li>
+    <li>Optimizing User Experience: Initialization and Resource Reloading</li>
 </ul>
 <p><b>V1.2.2 - October 31, 2025</b></p>
 <ul>
