@@ -1,6 +1,6 @@
 # ONNX Detect
 
-![ONNX-Detect-Screenshot](./assets/screenshot.png)
+[ONNX-Detect-Screenshot](./assets/screenshot.png)
 
 这是一个基于 **PyQt6**、**PyQt-Fluent-Widgets** 和 **ONNXRuntime** 的现代化桌面应用程序，专为 ONNX 模型目标检测而设计。它提供了一个基于 qframelesswindow 的亚克力 (Acrylic) 界面，支持多种输入源、灵活的模型管理（内置与自定义）以及强大的摄像头控制功能。
 
