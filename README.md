@@ -1,6 +1,6 @@
 # ONNX Detect
 
-![ONNX-Detect-Screenshot](./assets/screenshot.png)
+![ONNX-Detect-Screenshot](.//screenshot.png)
 
 This is a modern desktop application built on **PyQt6**, **PyQt-Fluent-Widgets**, and **ONNXRuntime**, specifically designed for ONNX model object detection. It features a qframelesswindow-based Acrylic interface, supporting multiple input sources, flexible model management (built-in and custom), and robust camera control capabilities.
 
