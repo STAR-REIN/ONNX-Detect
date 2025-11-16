@@ -63,6 +63,11 @@ This is a modern desktop application built on **PyQt6**, **PyQt-Fluent-Widgets**
 <summary>Click to Expand/Collapse</summary>
 
 <h3>Version Update Log</h3>
+<p><b>V1.2.4 - November 16, 2025</b></p>
+<ul>
+    <li>Introduced confidence and IOU threshold sliders, allowing for dynamic adjustment.</li>
+    <li>Changed the logo and added an initialization page.</li>
+</ul>
 <p><b>V1.2.3 - November 13, 2025</b></p>
 <ul>
     <li>Switching the OpenCV camera API to MSMF on Windows to resolve stuttering issues with high-resolution cameras.</li>
