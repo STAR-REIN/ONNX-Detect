@@ -63,6 +63,13 @@ This is a modern desktop application built on **PyQt6**, **PyQt-Fluent-Widgets**
 <summary>Click to Expand/Collapse</summary>
 
 <h3>Version Update Log</h3>
+<p><b>V1.3.0 - November 19, 2025</b></p>
+<ul>
+    <li><b>New Batch Inference Mode:</b> Supports multi-file queue processing and real-time progress display.</li>
+    <li><b>New Export Settings:</b> Supports custom filename templates (timestamp, index, model name, etc.).</li>
+    <li><b>New CSV Data Export:</b> Supports generating summary reports or individual data files for batch tasks.</li>
+    <li><b>Optimized Batch Management:</b> Supports smart output directory indexing and automatic folder creation.</li>
+</ul>
 <p><b>V1.2.4 - November 16, 2025</b></p>
 <ul>
     <li>Introduced confidence and IOU threshold sliders, allowing for dynamic adjustment.</li>
