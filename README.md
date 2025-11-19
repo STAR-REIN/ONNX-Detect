@@ -21,39 +21,29 @@ This is a modern desktop application built on **PyQt6**, **PyQt-Fluent-Widgets**
     * Utilizes `onnxruntime-gpu` as the core inference engine, prioritizing **NVIDIA GPU (CUDA)** for acceleration, with seamless fallback to CPU.
     * The UI automatically displays the currently used inference device (GPU or CPU).
 * **Flexible Inference Modes**:
-    * **One-Time Inference**:
-        * Supports **image files** (e.g., .png, .jpg).
-        * Supports **video files** (e.g., .mp4, .avi); results can be played after processing.
-        * Supports **single-frame camera capture** for immediate, one-time inference on the current camera view.
-    * **Real-Time Inference**:
-        * Supports **video file** input, processing in real-time and displaying both original/inferred dual views.
-        * Supports **live camera** input, performing inference while displaying the camera feed.
-        * Supports **pause/resume** during real-time inference.
+    * **One-Time Inference**: Supports image/video files and single-frame camera capture.
+    * **Real-Time Inference**: Supports video files and live camera input with pause/resume functionality.
+    * **Batch Inference (New)**:
+        * Supports **queuing multiple files** (images/videos) for automated sequential processing.
+        * Visual progress tracking for the entire batch task.
 * **Powerful Model Management**:
-    * **Built-in Models**: Automatically loads all YOLOv10 (n, s, m, l, x) ONNX models from the `models` directory.
-    * **Custom Models**:
-        * Supports loading arbitrary ONNX models via the `custom_models/custom_models_config.yaml` configuration file.
-        * Full support for custom **Class Names**.
-        * Full support for custom **Bounding Box Colors**.
-        * Provides in-app shortcuts to open the model directory and configuration file.
+    * **Built-in Models**: Automatically loads all YOLOv10 (n, s, m, l, x) ONNX models.
+    * **Custom Models**: Loads arbitrary ONNX models via YAML config, with full support for custom class names and colors.
+* **Batch Processing & Data Export**:
+    * **Smart Naming**: Customizable filename templates (e.g., `{original}_{timestamp}_{index}`) for organized output.
+    * **CSV Data Export**: Automatically generates CSV reports containing detailed detection data (classes, confidence, coordinates) for analysis.
+    * **Auto-Indexing**: Smart output directory management with automatic folder creation and index incrementing.
 * **Advanced Camera Control**:
-    * Automatically detects and lists all available system cameras.
-    * Supports switching between "Enable/Disable" the camera system and "Selecting a specific camera."
-    * **Resolution Settings**:
-        * Automatically detects resolutions supported by each camera (e.g., 1080p, 720p, 480p).
-        * Allows users to **preset the resolution** for a specific camera before inference.
+    * Automatically detects system cameras with "Enable/Disable" switching.
+    * **Resolution Settings**: Detects supported resolutions and allows user pre-selection.
 * **Comprehensive File Handling**:
-    * **Full support for Chinese (Unicode) paths**, whether for uploading files, saving results, or loading models.
-    * Supports selecting multiple save formats (JPG, PNG, BMP, TIFF) when saving inference results (images).
-    * Supports custom setting and opening of the default save directory.
+    * **Full support for Chinese (Unicode) paths**.
+    * Supports multiple image save formats (JPG, PNG, BMP, TIFF).
 * **Result Playback and State Management**:
-    * Built-in video player for playing back **video inference results** (displaying the original video and result video side-by-side).
-    * Supports playing, pausing, and resetting (returning to the start) the video.
-    * Powerful application state machine (`ApplicationStateManager`) intelligently manages the enabled/disabled status of UI components to prevent user errors (e.g., switching modes during inference or uploading files while the camera is on).
+    * Built-in side-by-side video player for inference results.
+    * Robust application state machine to prevent user operation errors.
 * **Other Features**:
-    * Includes an "About" page showing the version and changelog.
-    * Includes a "Clear" function to reset the application state and clear the display area with one click.
-    * Includes a mysterious Easter Egg.
+    * "About" page, "Clear" function, and a mysterious Easter Egg.
 
 ---
 
