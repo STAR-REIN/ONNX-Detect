@@ -53,6 +53,13 @@ This is a modern desktop application built on **PyQt6**, **PyQt-Fluent-Widgets**
 <summary>Click to Expand/Collapse</summary>
 
 <h3>Version Update Log</h3>
+<p><b>V1.3.1 - November 20, 2025</b></p>
+<ul>
+    <li><b>Core Refactoring:</b> Added full support for YOLOv11/v8 model formats and Dynamic Shape inputs.</li>
+    <li><b>Performance Boost:</b> Implemented NumPy vectorized post-processing and Letterbox preprocessing for significantly higher FPS and accuracy.</li>
+    <li><b>Stability Fix:</b> Fixed application crashes caused by OpenCV NMS return type inconsistencies.</li>
+    <li><b>UX Improvements:</b> Optimized real-time FPS calculation (instantaneous) and implemented asynchronous model loading for smoother startup.</li>
+</ul>
 <p><b>V1.3.0 - November 19, 2025</b></p>
 <ul>
     <li><b>New Batch Inference Mode:</b> Supports multi-file queue processing and real-time progress display.</li>
