@@ -53,6 +53,12 @@ This is a modern desktop application built on **PyQt6**, **PyQt-Fluent-Widgets**
 <summary>Click to Expand/Collapse</summary>
 
 <h3>Version Update Log</h3>
+<p><b>V1.3.2 - November 20, 2025</b></p>
+<ul>
+    <li>Camera Management Refactoring: Supports displaying real hardware names, parallel detection, and optimized initialization speed.</li>
+    <li>Device Refresh: Identify newly inserted cameras via the "Refresh Device List" menu without restarting.</li>
+    <li>Core Optimization: Adopted native Qt APIs for device information to ensure better compatibility.</li>
+</ul>
 <p><b>V1.3.1 - November 20, 2025</b></p>
 <ul>
     <li><b>Core Refactoring:</b> Added full support for YOLOv11/v8 model formats and Dynamic Shape inputs.</li>
