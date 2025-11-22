@@ -101,7 +101,7 @@ class MainView(AcrylicWindow):
             title_bar_layout.insertWidget(0, self.custom_icon_label)
             title_bar_layout.insertWidget(1, self.custom_title_label)
             # 设置窗口图标和标题，覆写的方法会触发更新我们自己的 QLabel
-            self.setWindowTitle("YOLOv10 目标检测工具")
+            self.setWindowTitle(" ONNX Detect V1.0.0")
             self.setWindowIcon(QIcon("assets/app_icon.png"))
 
             # 手动调用更新我们自己的标签，确保初始状态正确
