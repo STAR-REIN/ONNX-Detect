@@ -55,9 +55,9 @@ This is a modern desktop application built on **PyQt6**, **PyQt-Fluent-Widgets**
 <h3>Version Update Log</h3>
 <p><b>V1.3.3 - November 22, 2025</b></p>
 <ul> 
-    <li>Architecture Refactoring: Fully decoupled the main interface code.</li>
-    <li>Bug Fix: Resolved an issue where USB camera hot-plugging was not recognized.</li>
-    <li>UI Optimization: Optimized the display size of bounding boxes and labels on high-resolution screens.</li>
+    <li>Architecture Refactoring: Main interface code fully decoupled.</li>
+    <li>Bug Fix: Fixed the bug where USB camera hot-plugging was not recognized.</li>
+    <li>Uisual Optimization: Optimized the display size of bounding boxes and labels under high resolution.</li>
 </ul>
 <p><b>V1.3.2 - November 20, 2025</b></p>
 <ul>
