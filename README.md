@@ -53,6 +53,12 @@ This is a modern desktop application built on **PyQt6**, **PyQt-Fluent-Widgets**
 <summary>Click to Expand/Collapse</summary>
 
 <h3>Version Update Log</h3>
+<p><b>V1.3.4 - November 25, 2025</b></p>
+<ul>
+    <li>Fixed font color issues in Windows 11 Dark Mode.</li>
+    <li>Optimized interface font consistency.</li>
+    <li>Simplified built-in models.</li>
+</ul>
 <p><b>V1.3.3 - November 22, 2025</b></p>
 <ul> 
     <li>Architecture Refactoring: Main interface code fully decoupled.</li>
