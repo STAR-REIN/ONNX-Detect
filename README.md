@@ -146,9 +146,9 @@ This is a modern desktop application built on **PyQt6**, **PyQt-Fluent-Widgets**
 
 1.  Download the latest `.exe` executable file from the [Releases](https://github.com/STAR-REIN/ONNX-Detect/releases) page of this repository and download the environment compressed package from the [cloud drive link](https://pan.baidu.com/s/1tn5E1JG5FpbbVukE9UkVGg?pwd=ntdn) (password: ntdn).
 2.  Environment compressed package version descriptions:
-    * No suffix: Complete version, compressed package size is about 1.41G; comes with CUDA and onnx-runtime-gpu environment. You only need a GPU that supports CUDA 12.x.x to use GPU inference. **Recommended for users with a GPU but no pre-installed CUDA environment.**
-    * Lite_GPU: Simplified version, compressed package size is about 744MB; retains GPU support but requires the user to install the CUDA environment themselves. **Recommended for users with an existing CUDA environment.**
-    * Lite_CPU: Simplified version, compressed package size is about 684MB; removes GPU support and only supports CPU inference. **Recommended for users without a GPU.**
+    * No suffix: Complete version, compressed package size is about 1.18G; comes with CUDA and onnx-runtime-gpu environment. You only need a GPU that supports CUDA 12.x.x to use GPU inference. **Recommended for users with a GPU but no pre-installed CUDA environment.**
+    * Lite_GPU: Simplified version, compressed package size is about 514MB; retains GPU support but requires the user to install the CUDA environment themselves. **Recommended for users with an existing CUDA environment.**
+    * Lite_CPU: Simplified version, compressed package size is about 454MB; removes GPU support and only supports CPU inference. **Recommended for users without a GPU.**
 3.  First, download and decompress the required environment package. Then, place the `.exe` file into the root directory of the decompressed folder and double-click to run.
 4.  Ensure that your `models` folder and (optional) `custom_models` folder are in the same directory as the `.exe` file.
 5.  Directly run the `.exe` file.
