@@ -144,7 +144,7 @@ This is a modern desktop application built on **PyQt6**, **PyQt-Fluent-Widgets**
 
 ### Option 1: (Recommended) Using the Packaged .exe File
 
-1.  Download the latest `.exe` executable file from the [Releases](https://github.com/STAR-REIN/ONNX-Detect/releases) page of this repository and download the environment compressed package from the [cloud drive link](https://pan.baidu.com/s/1tn5E1JG5FpbbVukE9UkVGg?pwd=ntdn) (password: ntdn).
+1.  Download the latest `.exe` executable file from the [Releases](https://github.com/STAR-REIN/ONNX-Detect/releases) page of this repository and download the environment compressed package from the [cloud drive link](https://pan.baidu.com/s/1tn5E1JG5FpbbVukE9UkVGg?pwd=ntdn) (password: ntdn). If you **don't want to download environment compressed package from cloud disk**, [Releases-v1.3.4](https://github.com/STAR-REIN/ONNX-Detect/releases/tag/v1.3.4) includes three versions of envpackage, you can download directly via GitHub.
 2.  Environment compressed package version descriptions:
     * No suffix: Complete version, compressed package size is about 1.18G; comes with CUDA and onnx-runtime-gpu environment. You only need a GPU that supports CUDA 12.x.x to use GPU inference. **Recommended for users with a GPU but no pre-installed CUDA environment.**
     * Lite_GPU: Simplified version, compressed package size is about 514MB; retains GPU support but requires the user to install the CUDA environment themselves. **Recommended for users with an existing CUDA environment.**

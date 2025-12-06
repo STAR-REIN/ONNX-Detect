@@ -152,7 +152,7 @@
 
 ### 选项 1: (推荐) 使用打包的 .exe 文件
 
-1.  从本仓库的 [Releases](https://github.com/STAR-REIN/ONNX-Detect/releases) 页面下载最新的 `.exe` 可执行文件，从[网盘链接](https://pan.baidu.com/s/1tn5E1JG5FpbbVukE9UkVGg?pwd=ntdn)下载环境压缩包。
+1.  从本仓库的 [Releases](https://github.com/STAR-REIN/ONNX-Detect/releases) 页面下载最新的 `.exe` 可执行文件，从[网盘链接](https://pan.baidu.com/s/1tn5E1JG5FpbbVukE9UkVGg?pwd=ntdn)下载环境压缩包。如果**不想用百度网盘下载环境压缩包**，那么[Releases-v1.3.4](https://github.com/STAR-REIN/ONNX-Detect/releases/tag/v1.3.4)中也包含了三个版本的环境压缩包，可以直接通过GitHub下载。
 2.  环境压缩包版本说明：
    * 无后缀：完整版本，压缩包大小1.18G左右；自带CUDA和onnx-runtime-gpu环境，只需电脑自带支持CUDA 12.x.x的GPU即可使用GPU推理，建议无CUDA环境，有GPU用户下载。
    * Lite_GPU：简化版本，压缩包大小514MB左右；保留GPU支持，但需用户自行安装CUDA环境，建议有CUDA环境用户下载。
